@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Brawl Lab: catálogo, estratégias, mapas e builds de Brawl Stars.">
+  <title>Brawl Lab - Guia Brawl Stars</title>
+  <link rel="stylesheet" href="brawl.css">
+</head>
+<body>
+  <main class="app" id="top">
+    <div class="wrap">
+      <header class="topbar">
+        <div class="brand">
+          <div class="logo">BL</div>
+          <div>
+            BRAWL LAB
+            <small>GUIA DA COMUNIDADE</small>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Navegação principal">
+          <a href="#brawlers">Brawlers</a>
+          <a href="#mapas">Mapas e modos</a>
+          <a href="#builds">Builds</a>
+          <a href="#sobre">Sobre</a>
+        </nav>
+
+        <button class="btn secondary" data-scroll-target="brawlers">
+          Explorar
+        </button>
+      </header>
+
+      <section class="hero">
+        <div>
+          <div class="eyebrow">BRAWL LAB / ENCICLOPÉDIA DE FÃ</div>
+          <h1>
+            Todos os Brawlers.<br>
+            <span>Uma central de estratégia.</span>
+          </h1>
+          <p>
+            Pesquise personagens, filtre por raridade e classe e explore
+            guias para preparar sua próxima partida. Encontre informações
+            sobre personagens, mapas, modos e builds em um só lugar.
+          </p>
+          <div class="hero-actions">
+            <button class="btn primary" data-scroll-target="brawlers">
+              Explorar catálogo
+            </button>
+            <button class="btn secondary" data-scroll-target="mapas">
+              Mapas e modos
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="brawlers">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Biblioteca completa</div>
+            <h2>Catálogo de Brawlers</h2>
+            <div class="muted" id="catalogCount">Carregando catálogo...</div>
+          </div>
+          <span class="tag">FILTROS INTERATIVOS</span>
+        </div>
+
+        <div class="tools">
+          <input
+            class="field"
+            id="search"
+            type="search"
+            placeholder="Buscar por nome..."
+            aria-label="Buscar Brawler"
+          >
+
+          <select class="field" id="classFilter" aria-label="Filtrar por classe">
+            <option value="Todos">Todas as classes</option>
+            <option value="Tanque">Tanque</option>
+            <option value="Atirador">Atirador</option>
+            <option value="Assassino">Assassino</option>
+            <option value="Controle">Controle</option>
+            <option value="Suporte">Suporte</option>
+            <option value="Dano">Dano</option>
+            <option value="Artilharia">Artilharia</option>
+          </select>
+
+          <select class="field" id="rarityFilter" aria-label="Filtrar por raridade">
+            <option value="Todas">Todas as raridades</option>
+            <option value="Inicial">Inicial</option>
+            <option value="Raro">Raro</option>
+            <option value="Super-raro">Super-raro</option>
+            <option value="Épico">Épico</option>
+            <option value="Mítico">Mítico</option>
+            <option value="Lendário">Lendário</option>
+          </select>
+        </div>
+
+        <div class="cards" id="brawlerCards"></div>
+
+        <div class="notice">
+          Os dados do catálogo podem não refletir todos os lançamentos e
+          balanceamentos mais recentes do jogo. Consulte as fichas individuais
+          para organizar as informações de cada personagem.
+        </div>
+      </section>
+
+      <section class="section" id="mapas">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Conheça o campo</div>
+            <h2>Mapas e modos</h2>
+            <div class="muted">
+              Escolha seus personagens de acordo com o objetivo da partida.
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="panel">
+            <h3>Modos populares</h3>
+            <div class="list">
+              <div class="list-item">
+                <div class="list-icon">01</div>
+                <div>
+                  <strong>Pique-gema</strong>
+                  <small>Controle o centro e proteja as gemas.</small>
+                </div>
+                <span class="pill">3x3</span>
+              </div>
+
+              <div class="list-item">
+                <div class="list-icon">02</div>
+                <div>
+                  <strong>Fute-brawl</strong>
+                  <small>Crie espaço, passe e finalize.</small>
+                </div>
+                <span class="pill">3x3</span>
+              </div>
+
+              <div class="list-item">
+                <div class="list-icon">03</div>
+                <div>
+                  <strong>Nocaute</strong>
+                  <small>Priorize sobrevivência e posicionamento.</small>
+                </div>
+                <span class="pill">3x3</span>
+              </div>
+
+              <div class="list-item">
+                <div class="list-icon">04</div>
+                <div>
+                  <strong>Roubo</strong>
+                  <small>Equilibre a pressão no cofre e a defesa.</small>
+                </div>
+                <span class="pill">3x3</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3>Como analisar um mapa</h3>
+            <div class="list">
+              <div class="list-item">
+                <div class="list-icon">01</div>
+                <div>
+                  <strong>Paredes e obstáculos</strong>
+                  <small>Observe como afetam os ataques e a movimentação.</small>
+                </div>
+              </div>
+
+              <div class="list-item">
+                <div class="list-icon">02</div>
+                <div>
+                  <strong>Arbustos e visão</strong>
+                  <small>Considere emboscadas e ferramentas de revelação.</small>
+                </div>
+              </div>
+
+              <div class="list-item">
+                <div class="list-icon">03</div>
+                <div>
+                  <strong>Corredores e alcance</strong>
+                  <small>Observe linhas de tiro e rotas alternativas.</small>
+                </div>
+              </div>
+
+              <div class="list-item">
+                <div class="list-icon">04</div>
+                <div>
+                  <strong>Objetivo principal</strong>
+                  <small>Priorize escolhas que ajudem a equipe a vencer.</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="builds">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Oficina de estratégia</div>
+            <h2>Componentes de uma build</h2>
+            <div class="muted">
+              A melhor configuração depende do mapa, do modo e da equipe.
+            </div>
+          </div>
+        </div>
+
+        <div class="build-grid">
+          <div class="build">
+            <div class="emoji">01</div>
+            <b>Acessórios</b>
+            <small>Habilidades ativáveis para criar oportunidades ou escapar.</small>
+          </div>
+
+          <div class="build">
+            <div class="emoji">02</div>
+            <b>Poderes de estrela</b>
+            <small>Bônus passivos que alteram o estilo de jogo.</small>
+          </div>
+
+          <div class="build">
+            <div class="emoji">03</div>
+            <b>Engrenagens</b>
+            <small>Bônus que complementam as necessidades do personagem.</small>
+          </div>
+
+          <div class="build">
+            <div class="emoji">04</div>
+            <b>Hipercarga</b>
+            <small>Considere o momento ideal para utilizá-la na partida.</small>
+          </div>
+        </div>
+
+        <div class="notice">
+          Antes de escolher uma build, analise qual problema ela resolve
+          naquele mapa e modo.
+        </div>
+      </section>
+
+      <section class="section" id="sobre">
+        <div class="panel">
+          <div class="eyebrow">Sobre o projeto</div>
+          <h2>Conhecimento para cada partida.</h2>
+          <p class="muted">
+            Brawl Lab é um projeto de fã inspirado em enciclopédias e
+            ferramentas da comunidade. Não é afiliado à Supercell e não
+            está conectado a dados ao vivo. O objetivo é reunir fichas,
+            estratégias, mapas, modos e builds em um só lugar.
+          </p>
+          <button class="btn primary" id="closeGuide">
+            Fechar guia
+          </button>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>BRAWL LAB - Projeto de fã</span>
+        <span>Brawl Stars é propriedade da Supercell.</span>
+      </footer>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    "use strict";
+
+    const rawNames = `
+Shelly|Inicial|Dano;
+Nita|Raro|Dano;
+Colt|Raro|Atirador;
+Bull|Raro|Tanque;
+Brock|Raro|Atirador;
+El Primo|Raro|Tanque;
+Barley|Raro|Artilharia;
+Poco|Raro|Suporte;
+Rosa|Raro|Tanque;
+Jessie|Super-raro|Controle;
+Dynamike|Super-raro|Artilharia;
+Tick|Super-raro|Artilharia;
+8-Bit|Super-raro|Dano;
+Rico|Super-raro|Atirador;
+Darryl|Super-raro|Tanque;
+Penny|Super-raro|Artilharia;
+Carl|Super-raro|Atirador;
+Jacky|Super-raro|Tanque;
+Gus|Super-raro|Suporte;
+Bo|Épico|Controle;
+Emz|Épico|Controle;
+Stu|Épico|Assassino;
+Piper|Épico|Atirador;
+Pam|Épico|Suporte;
+Frank|Épico|Tanque;
+Bibi|Épico|Tanque;
+Bea|Épico|Atirador;
+Nani|Épico|Atirador;
+Edgar|Épico|Assassino;
+Griff|Épico|Dano;
+Grom|Épico|Artilharia;
+Bonnie|Épico|Dano;
+Gale|Épico|Controle;
+Colette|Épico|Dano;
+Belle|Épico|Atirador;
+Ash|Épico|Tanque;
+Lola|Épico|Dano;
+Sam|Épico|Assassino;
+Mandy|Épico|Atirador;
+Maisie|Épico|Atirador;
+Hank|Épico|Tanque;
+Pearl|Épico|Dano;
+Larry & Lawrie|Épico|Controle;
+Angelo|Épico|Atirador;
+Berry|Épico|Suporte;
+Shade|Épico|Assassino;
+Meeple|Épico|Controle;
+Trunk|Épico|Tanque;
+Mortis|Mítico|Assassino;
+Tara|Mítico|Dano;
+Gene|Mítico|Suporte;
+Max|Mítico|Suporte;
+Mr. P|Mítico|Controle;
+Sprout|Mítico|Artilharia;
+Byron|Mítico|Suporte;
+Squeak|Mítico|Controle;
+Fang|Mítico|Assassino;
+Eve|Mítico|Dano;
+Janet|Mítico|Atirador;
+Otis|Mítico|Controle;
+Buster|Mítico|Tanque;
+Gray|Mítico|Suporte;
+R-T|Mítico|Dano;
+Willow|Mítico|Controle;
+Doug|Mítico|Suporte;
+Chuck|Mítico|Dano;
+Charlie|Mítico|Controle;
+Mico|Mítico|Assassino;
+Melodie|Mítico|Assassino;
+Lily|Mítico|Assassino;
+Clancy|Mítico|Dano;
+Moe|Mítico|Dano;
+Juju|Mítico|Artilharia;
+Ollie|Mítico|Tanque;
+Lumi|Mítico|Dano;
+Kaze|Mítico|Assassino;
+Spike|Lendário|Dano;
+Crow|Lendário|Assassino;
+Leon|Lendário|Assassino;
+Sandy|Lendário|Controle;
+Amber|Lendário|Dano;
+Meg|Lendário|Dano;
+Surge|Lendário|Dano;
+Chester|Lendário|Dano;
+Cordelius|Lendário|Assassino;
+Kit|Lendário|Suporte;
+Draco|Lendário|Tanque;
+Kenji|Lendário|Assassino;
+Jae-yong|Mítico|Suporte;
+Alli|Mítico|Assassino;
+Gigi|Mítico|Assassino
+`;
+
+    const brawlers = rawNames
+      .split(";")
+      .map((item) => item.trim())
+      .filter(Boolean)
+      .map((item) => {
+        const [name, rarity, cls] = item.split("|");
+
+        return {
+          name: name.trim(),
+          rarity: rarity.trim(),
+          cls: cls.trim()
+        };
+      });
+
+    const cards = document.getElementById("brawlerCards");
+    const searchInput = document.getElementById("search");
+    const classFilter = document.getElementById("classFilter");
+    const rarityFilter = document.getElementById("rarityFilter");
+    const catalogCount = document.getElementById("catalogCount");
+    const toast = document.getElementById("toast");
+
+    let toastTimer = null;
+
+    function createSlug(name) {
+      return name
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
+    }
+
+    function openBrawlerPage(name) {
+      const brawler = brawlers.find((item) => item.name === name);
+
+      if (!brawler) {
+        showToast("Não foi possível encontrar esse Brawler.");
+        return;
+      }
+
+      const slug = createSlug(brawler.name);
+      window.location.href = `./Brawlers/${slug}.html`;
+    }
+
+    function renderBrawlers() {
+      const query = searchInput.value.toLowerCase().trim();
+      const selectedClass = classFilter.value;
+      const selectedRarity = rarityFilter.value;
+
+      const filteredBrawlers = brawlers.filter((brawler) => {
+        const matchesName = brawler.name.toLowerCase().includes(query);
+        const matchesClass =
+          selectedClass === "Todos" || brawler.cls === selectedClass;
+        const matchesRarity =
+          selectedRarity === "Todas" || brawler.rarity === selectedRarity;
+
+        return matchesName && matchesClass && matchesRarity;
+      });
+
+      catalogCount.textContent =
+        `${filteredBrawlers.length} de ${brawlers.length} personagens na lista`;
+
+      if (filteredBrawlers.length === 0) {
+        cards.innerHTML =
+          '<div class="empty">Nenhum resultado encontrado.</div>';
+        return;
+      }
+
+      cards.innerHTML = filteredBrawlers.map((brawler) => {
+        const initials = brawler.name
+          .split(/\s+/)
+          .map((part) => part.replace(/[^a-zA-Z0-9]/g, ""))
+          .filter(Boolean)
+          .map((part) => part[0])
+          .join("")
+          .slice(0, 2)
+          .toUpperCase();
+
+        const article = document.createElement("article");
+        article.className = "card";
+
+        const art = document.createElement("div");
+        art.className = "brawler-art";
+        art.textContent = initials;
+
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = brawler.rarity;
+
+        const title = document.createElement("h3");
+        title.textContent = brawler.name;
+
+        const description = document.createElement("p");
+        description.textContent = brawler.cls;
+
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = "Abrir ficha";
+        button.addEventListener("click", () => {
+          openBrawlerPage(brawler.name);
+        });
+
+        article.append(art, tag, title, description, button);
+        return article.outerHTML;
+      }).join("");
+
+      cards.querySelectorAll("button").forEach((button) => {
+        button.addEventListener("click", () => {
+          const title = button.parentElement.querySelector("h3");
+          if (title) {
+            openBrawlerPage(title.textContent);
+          }
+        });
+      });
+    }
+
+    function showToast(message) {
+      toast.textContent = message;
+      toast.style.display = "block";
+
+      if (toastTimer !== null) {
+        clearTimeout(toastTimer);
+      }
+
+      toastTimer = setTimeout(() => {
+        toast.style.display = "none";
+        toastTimer = null;
+      }, 3500);
+    }
+
+    document.querySelectorAll("[data-scroll-target]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const target = document.getElementById(button.dataset.scrollTarget);
+
+        if (target) {
+          target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+      });
+    });
+
+    document.getElementById("closeGuide").addEventListener("click", () => {
+      showToast("Obrigado por visitar o Brawl Lab.");
+    });
+
+    searchInput.addEventListener("input", renderBrawlers);
+    classFilter.addEventListener("change", renderBrawlers);
+    rarityFilter.addEventListener("change", renderBrawlers);
+
+    renderBrawlers();
+  </script>
+</body>
+</html>
